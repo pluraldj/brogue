@@ -1,0 +1,300 @@
+/*
+ * Brogue
+ * broguegame.com
+ * stylesheet.css
+ * Updated: January 01 2012
+ */
+
+/* =============================================================================
+   Global
+   ========================================================================== */
+   
+body {
+	background: url(../images/bg-brogue.jpg) no-repeat right top #000;
+	color: #FFF;
+	font: 16px/1.4 cambria, georgia, times, serif;
+}
+
+#wrapper {
+	margin: 0 auto;
+	overflow: hidden;
+	width: 60em;
+}
+
+code {
+	color: #4DA956;
+	font-family: "Andale Mono", "Monaco", monospace;
+}
+
+
+/*
+ * ----------------------------------------------------------------------------- Links
+ */
+
+a {
+	border-bottom: 1px solid #9DFEFF;
+	color: #9DFEFF;
+	text-decoration: none;
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+}
+
+a:hover {
+	background: #9DFEFF;
+	color: #333;
+}
+
+
+/*
+ * ----------------------------------------------------------------------------- Headings
+ */
+ 
+h1, h2, h3, h4, h5, h6 { margin: 0 0 0.5em; }
+
+h1 { font-family: "Andale Mono", "Monaco", monospace; font-weight: 300; }
+h2 { color: #FFF; font-family: "Andale Mono", "Monaco", monospace; }
+
+
+/*
+ * ----------------------------------------------------------------------------- Paragraphs & Lists
+ */
+ 
+p,
+ul { margin: 0 0 1em; }
+
+
+/*
+ * ----------------------------------------------------------------------------- Figures
+ */
+
+
+
+/*
+ * ----------------------------------------------------------------------------- Header
+ */
+ 
+#header {
+	background: rgba(0, 0, 0, 0.7);
+	padding: .5em 1.5em;
+	position: relative;
+}
+
+#logo { float: left; }
+
+#logo a {
+	border: none;
+	color: #FAF194;
+	font-size: 1.5em;
+	font-weight: 300;
+	margin: 0;
+}
+
+#logo a:hover {
+	background: transparent;
+	text-shadow: 0 0 1px #FFF;
+}
+
+#nav ul {
+	float: right;
+	margin: 1.5em 0 0;
+}
+
+#nav li {
+	float: left;
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	margin: 0 0 0 1em;
+}
+
+#nav li:first-of-type a:hover  { background: #F25F72; }
+#nav li:nth-of-type(2) a:hover { background: #FD001B; }
+#nav li:nth-of-type(3) a:hover { background: #CB6743; }
+#nav li:last-of-type a:hover   { background: #FC6100; }
+
+#nav a { border: none; color: #FFF; }
+
+
+/*
+ * ----------------------------------------------------------------------------- Article
+ */
+ 
+#content { margin: 0 0 1em; }
+ 
+article {
+	background: rgba(0, 0, 0, 0.7);
+	border-top: 0.5em solid #FFF;
+	float: left;
+	margin: 0 5% 0 0;
+	padding: 1% 2.5%;
+	width: 25%;
+}
+
+article:last-of-type { margin: 0; }
+
+.gallery {
+	background: rgba(0, 0, 0, 0.7);
+	border-top: 0.5em solid #FFF;;
+	margin: 0 0 1em;
+	padding: 1em 0;
+}
+
+.gallery ul { margin: 0; padding: 0; }
+
+.gallery a { text-decoration: none; }
+
+.gallery li {
+	float: left;
+	list-style: none;
+}
+
+.gallery figure { position: relative; }
+
+.gallery figcaption {
+	background: rgba(0, 0, 0, 0.7);
+	border: none;
+	bottom: 0;
+	color: #fff;
+	display: block;
+	font-size: 120%;
+	line-height: 1em;
+	opacity: 0;
+	padding: 1em;
+	position: absolute;
+	width: 208px;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	
+}
+
+.gallery figure:hover figcaption { opacity: 1; }
+
+.modal-bg {
+	background: #000;
+	background: rgba(0,0,0,.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed; 
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.modal {
+	background: #0D082B;
+	color: #FFF;
+	font-family: "Andale Mono", "Monaco", monospace;
+	left: 50%;
+	height: 90%;
+	margin-left: -300px;
+	overflow-y: scroll;
+	padding: 1em;
+	position: absolute;
+	top: 1em;
+	visibility: hidden;
+	width: 600px;
+	z-index: 101;
+}
+
+.screenshots .modal {
+	background: transparent;
+	height: auto;
+	margin-left: -400px;
+	overflow: visible;
+	padding: 0;
+	top: 5em;
+	width: 800px;
+}
+
+.modal h1 { color: #FAF194; }
+.modal li { margin: 0 0 1em; }
+
+.close-modal {
+	background: #f1f1f1;
+	border: none;
+	box-shadow: 0 0 5px #000;
+	color: #333;
+	cursor: pointer;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 2em;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+	width: 50px;
+}
+
+.close-modal:hover { background: #f1f1f1; color: #333; }
+
+
+/*
+ * ----------------------------------------------------------------------------- Footer
+ */
+ 
+#footer {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 1em;
+	margin: 0 0 1em;
+}
+
+#footer p  { float: left; }
+#footer ul { float: right; }
+#footer li { display: inline; }
+#footer a  { border-bottom: 1px solid #FFF; color: #FFF; }
+#footer a:hover { background: #FFF; color: #333; }
+
+ 
+/*
+ * ----------------------------------------------------------------------------- Clear
+ */
+ 
+.clear:before,
+.clear:after,
+#header:before,
+#header:after,
+#content:before,
+#content:after,
+#footer:before,
+#footer:after,
+.gallery:before,
+.gallery:after { content: ""; display: table; }
+
+.clear:after,
+#header:after,
+#content:after,
+#footer:after,
+.gallery:after { clear: both; }
+
+
+/* =============================================================================
+   Print
+   ========================================================================== */
+   
+@media print {
+
+}
+
+
+/* =============================================================================
+   Mobile
+   ========================================================================== */
+   
+@media (max-width: 640px){
+
+}
+
+
+/* =============================================================================
+   Animations
+   ========================================================================== */
+
+@-webkit-keyframes rotator {
+	
+}
+
+@-moz-keyframes rotator {
+	
+}
