@@ -1,0 +1,327 @@
+// Brogue
+// broguelike.com
+// Updated March 15 2012
+
+@import 'normalize';
+
+$code: #4DA956;
+$link: #9DFEFF;
+$logo: #FAF194;
+$modal-bg: #0D082B;
+$monospace: "Andale Mono", "Monaco", monospace;
+$sans-serif: Arial, sans-serif;
+$serif: cambria, georgia, times, serif;
+$opaque: rgba(0, 0, 0, 0.7);
+$wrapper-width: 60em;
+
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+	     -o-transition: $transition;
+	        transition: $transition;
+}
+
+.clear {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	& {
+		zoom: 1;
+	}
+}
+
+
+// Global
+
+body {
+	background: {
+		color: #000;
+		image: url(/images/bg-brogue.jpg);
+		position: right top;
+		repeat: no-repeat;
+	}
+	color: #FFF;
+	font: 16px/1.4 $serif;
+}
+
+#wrapper {
+	margin: 0 auto;
+	overflow: hidden;
+	width: $wrapper-width;
+}
+
+strong {
+	color: $code;
+	font: {
+		family: $monospace;
+		weight: 300;
+	}
+}
+
+
+// Links
+
+a {
+	@include transition(all 0.1s ease);
+	border-bottom: 1px solid $link;
+	color: $link;
+	text-decoration: none;
+	&:hover {
+		background: $link;
+		color: #333;
+	}
+}
+
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5em;
+}
+
+h1 {
+	font: {
+		family: $monospace;
+		weight: 300;
+	}
+}
+
+h2 {
+	color: #FFF;
+	font-family: $monospace;
+}
+
+
+// Paragraphs & Lists
+
+p,
+ul {
+	margin: 0 0 1em;
+}
+
+
+// Header
+
+#header {
+	@extend .clear;
+	background: $opaque;
+	padding: 0.5em 1.5em;
+	position: relative;
+}
+
+#logo {
+	float: left;
+	a {
+		border: none;
+		color: $logo;
+		font-size: 1.5em;
+		margin: 0;
+		&:hover {
+			background: transparent;
+			text-shadow: 0 0 1px #FFF;
+		}
+	}
+}
+
+#nav {
+	ul {
+		float: right;
+		margin: 1.5em 0 0;
+	}
+	li {
+		float: left;
+		font: {
+			family: $sans-serif;
+			size: 1.5em;
+		}
+		list-style: none;
+		margin: 0 0 0 1em;
+		&:first-of-type a:hover {
+			background: #F25F72;
+		}
+		&:nth-of-type(2) a:hover {
+			background: #FD001B;
+		}
+		&:nth-of-type(3) a:hover {
+			background: #CB6743;
+		}
+		&:last-of-type a:hover {
+			background: #FC6100;
+		}
+	}
+	a {
+		border: none;
+		color: #FFF;
+	}
+}
+
+
+// Content
+
+#content {
+	@extend .clear;
+	margin: 0 0 1em;
+}
+
+.item {
+	background: $opaque;
+	border-top: 0.5em solid #FFF;
+	float: left;
+	margin: 0 5% 0 0;
+	padding: 1% 2.5%;
+	width: 25%;
+	&:last-of-type {
+		margin: 0;
+	}
+}
+
+
+// Screenshots
+
+.gallery {
+	@extend .clear;
+	background: $opaque;
+	border-top: 0.5em solid #FFF;
+	margin: 0 0 1em;
+	padding: 1em 0;
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		float: left;
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+
+figure {
+	position: relative;
+	&:hover figcaption {
+		opacity: 1;
+	}
+}
+
+figcaption {
+	@include transition(all 0.2s ease);
+	background: $opaque;
+	border: none;
+	bottom: 0;
+	color: #FFF;
+	display: block;
+	font-size: 120%;
+	line-height: 1em;
+	opacity: 0;
+	padding: 1em;
+	position: absolute;
+	width: 208px;
+}
+
+
+// Modals
+
+.modal-bg {
+	background: #000;
+	background: rgba(0,0,0,.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed; 
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.modal {
+	background: $modal-bg;
+	color: #FFF;
+	font-family: "Andale Mono", "Monaco", monospace;
+	left: 50%;
+	height: 90%;
+	margin-left: -300px;
+	overflow-y: scroll;
+	padding: 1em;
+	position: absolute;
+	top: 1em;
+	visibility: hidden;
+	width: 600px;
+	z-index: 101;
+	&::-webkit-scrollbar {
+		height: 8px;
+		width: 8px;
+	}
+	&::-webkit-scrollbar-button:start:decrement,
+	&::-webkit-scrollbar-button:end:decrement {
+		background-color: transparent;
+		display: block;
+		height: 0;
+	}
+	&::-webkit-scrollbar-thumb:vertical {
+		background-color: $logo;
+	}
+	&::-webkit-scrollbar-track-piece {
+		background: #333;
+	}
+	h1 {
+		color: $logo;
+	}
+	li {
+		margin: 0 0 1em;
+	}
+}
+
+.screenshots .modal {
+	background: transparent;
+	height: auto;
+	margin-left: -400px;
+	overflow: visible;
+	padding: 0;
+	top: 5em;
+	width: 800px;
+}
+
+.close-modal {
+	background: #f1f1f1;
+	border: none;
+	box-shadow: 0 0 5px #000;
+	color: #333;
+	cursor: pointer;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 2em;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+	width: 50px;
+	&:hover {
+		background: #F1F1F1;
+		color: #333;
+	}
+}
+
+
+
+// Footer
+
+#footer {
+	@extend .clear;
+	background: $opaque;
+	margin: 0 0 1em;
+	padding: 1em;
+	p {
+		float: left;
+	}
+}

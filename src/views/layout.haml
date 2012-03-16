@@ -1,0 +1,38 @@
+!!!
+%html
+	%head
+		%title= "Brogue#{title}"
+		%meta{:charset => "utf-8"}
+		%meta{:content => "", :name => "description"}
+		%link{:href => "/images/favicon.png", :rel => "icon"}
+		%link{:href => "/css/styles.css", :rel => "stylesheet"}
+		%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+		%script{:src => "/js/scripts.js"}
+	%body
+		#wrapper
+
+			#header
+				%h1#logo
+					%a{:href => "/"} Brogue
+				#nav
+					%ul
+						%li
+							%a{:href => "/screenshots"} Screenshots
+						%li
+							%a{:href => "#", :"data-id" => "tips"} Tips
+						%li
+							%a{:href => "#", :"data-id" => "changelog"} Changelog
+						%li
+							%a{:href => "/forums"} Forums
+
+			#content
+				=yield
+
+			#footer
+				%p &copy; Brian Walker
+
+			#tips.modal
+				=haml :tips, :layout => false
+
+			#changelog.modal
+				=haml :changelog, :layout => false
